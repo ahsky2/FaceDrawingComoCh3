@@ -76,7 +76,7 @@ class PopArt {
   void display() {
     
     translate(x, y);
-    fill(0);
+    fill(255);
     noStroke();
     rect(0, 0, width, height);
 //    rotate(PI/2);
@@ -95,7 +95,7 @@ class PopArt {
     
     if (x > 6 * width) {
       translate(x - width * 7 - 20, y + height);
-      fill(0);
+      fill(255);
       noStroke();
       rect(0, 0, width, height);
   //    rotate(PI/2);

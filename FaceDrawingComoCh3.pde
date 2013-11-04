@@ -20,6 +20,10 @@ boolean[] isRunnings = new boolean[popArtCount];
 
 int offset = 20;
 
+boolean isSave = false;
+int saveIndex = 0;
+int saveCount = 1000;
+
 void setup() {
   size(720, 480, P2D);
   smooth();
@@ -40,7 +44,7 @@ void setup() {
   }
   
   func = new NonLinearFunc(0.0, 0.0, 255.0, 255.0, 3.0);
-  func.make(10.0); // alpha value
+  func.make(12.0); // alpha value
   
   popArtVector = new Vector();
   for(int i = 0; i < popArtCount; i++) {
@@ -63,7 +67,7 @@ void setup() {
     popArtVector.add(popArt);
     
     showIndexes[i] = 0;
-    showCounts[i] = 100;
+    showCounts[i] = 200;
     showDelayIndexes[i] = 0;
     showDelays[i] = 5 * i;
   }
@@ -80,7 +84,7 @@ void draw() {
       showIndexes[i]++;
     } else {
       
-      isRunnings[i] = popArt.transition(5,func);
+      isRunnings[i] = popArt.transition(10,func);
       if (isRunnings[i]) {
       } else {
 //        showDelayIndexes[i] = 0;
@@ -96,4 +100,20 @@ void draw() {
     
     i++;
   }
+
+  if (isSave) {
+    if (saveIndex < saveCount / 2 + 1) {
+      saveFrame("frames/" +  String.valueOf(10000 + saveIndex).substring(1));
+      saveFrame("frames/" +  String.valueOf(10000 + saveCount - saveIndex).substring(1));
+      saveIndex++;
+    }
+  }
+}
+
+void mouseClicked() {
+//  isSave = true;
+}
+
+void keyDown( ) {
+  
 }
