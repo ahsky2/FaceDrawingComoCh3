@@ -1,3 +1,6 @@
 frames
 *.mov
 application.macosx
+*.jpg
+*.png
+*.tif
